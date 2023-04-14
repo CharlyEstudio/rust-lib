@@ -1,3 +1,3 @@
-import MySum from "./App";
+import MySum from './App'
 
-export {MySum};
+export { MySum }
