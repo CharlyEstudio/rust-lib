@@ -10,9 +10,13 @@ const MySum = ({ n1 = 0, n2 = 0 }: Props) => {
   const [suma, setSuma] = useState<number>(0)
 
   useEffect(() => {
-    const lib = ffi.Library('../libs/crop-image', { add2numbers: ['int', ['int', 'int']] })
-    const result: number = lib.add2numbers(n1, n2)
-    setSuma(result)
+    try {
+      const lib = ffi.Library('../libs/crop-image', { add2numbers: ['int', ['int', 'int']] })
+      const result: number = lib.add2numbers(n1, n2)
+      setSuma(result)
+    } catch (e) {
+      console.log(e)
+    }
   }, [n1, n2])
 
   return (
